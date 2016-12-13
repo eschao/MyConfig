@@ -22,6 +22,7 @@ let g:colors_name = "dracula"
 hi Cursor ctermfg=17 ctermbg=231 cterm=NONE guifg=#282a36 guibg=#f8f8f0 gui=NONE
 hi Visual ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#44475a gui=NONE
 hi CursorLine ctermfg=NONE ctermbg=233 cterm=bold guifg=NONE guibg=#3d3f49 gui=NONE
+hi CursorLineNR ctermfg=221 ctermbg=233 cterm=bold guifg=NONE guibg=#3d3f49 gui=NONE
 hi CursorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#3d3f49 gui=NONE
 hi ColorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#3d3f49 gui=NONE
 hi LineNr ctermfg=246 ctermbg=236 cterm=NONE guifg=#909194 guibg=#3d3f49 gui=NONE

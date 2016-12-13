@@ -128,24 +128,20 @@ set foldlevelstart=1
 " Wild Side & Completion
 " Enable your wild side, take command completion completion up a notch.
 " Allow for an interesting view when opening the command line menu.
-set wildmenu wildmode=longest:full
-set wildoptions=tagfile
-if has('wildignore') && v:version >= 704 | set wildignorecase | endif
+"set wildmenu wildmode=longest:full
+"set wildoptions=tagfile
+"if has('wildignore') && v:version >= 704 | set wildignorecase | endif
 
 " Ignore a lot of stuff.
-set wildignore+=*.swp,*.pyc,*.bak,*.class,*.orig
-set wildignore+=.git,.hg,.bzr,.svn
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.svg
-set wildignore+=build/*,tmp/*,vendor/cache/*,bin/*
-set wildignore+=.sass-cache/*
+"set wildignore+=*.swp,*.pyc,*.bak,*.class,*.orig
+"set wildignore+=.git,.hg,.bzr,.svn
+"set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.svg
+"set wildignore+=build/*,tmp/*,vendor/cache/*,bin/*
+"set wildignore+=.sass-cache/*
 
 " Set the Vim command history size to a larger number.
 set history=9999
 set undolevels=9999
-
-" Airline config
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
 
 " Others
 set magic "Set magic on, for regular expressions
@@ -162,12 +158,6 @@ map <leader>tn :tabnew %<cr>
 map <leader>te :tabedit 
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
-
-""""""""""""""""""""""""""""""
-" => bufExplorer plugin
-""""""""""""""""""""""""""""""
-let g:bufExplorerDefaultHelp=0
-let g:bufExplorerShowRelativePath=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoVim Python 
@@ -316,7 +306,7 @@ let g:tagbar_type_objc = {
 nmap <leader>en :NERDTree<cr>
 nmap <leader>ec :NERDTreeClose<cr>
 let NERDTreeShowBookmarks = 1
-let NERDTreeWinSize = 100 
+let NERDTreeWinSize = 60 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctags 
@@ -380,6 +370,8 @@ nmap <leader>yd :YcmDiags<CR>
 " Airline 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ' :t'
 set laststatus=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -484,3 +476,11 @@ au Syntax * RainbowParenthesesLoadBraces
             \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") 
             \ . ">"<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Buffers
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>bn :bnext<CR>
+map <leader>bp :bprevious<CR>
+map <leader>bl :buffers<CR>
+
