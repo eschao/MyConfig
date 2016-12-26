@@ -1,8 +1,6 @@
 ## Install Vundle
 
-    ```
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    ```
 
 ## Install YouCompleteMe
 
@@ -30,9 +28,7 @@
     
 ## Install **ctags**
     
-    ```
     brew isntall ctags
-    ```
 
 ## Install **Ack**
 
@@ -40,8 +36,6 @@
 
 ## Install Java plugins
 
-    ```
     Plugin "hsanson/vim-android"
-    ```
 
 
