@@ -97,10 +97,15 @@ set foldlevelstart=1
 
 " Set leader key
 let mapleader = "\<Space>"
-let g:mapleader = "\<Space>"
 
 " Fast saving
 nmap <leader>w :w!<cr>
+
+" Edit vimrc
+nnoremap <leader>ev :tabnew $MYVIMRC<cr>
+
+" Source vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
@@ -408,7 +413,8 @@ nnoremap <leader>vt :VimShellTab<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Gundo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>gu :Gundo<CR>
+nnoremap <leader>gs :GundoShow<CR>
+nnoremap <leader>gh :GundoHide<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rainbow Parentheses 
