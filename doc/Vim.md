@@ -13,6 +13,11 @@
 * Install **NPM** for JavaScript:
   - Download from: https://nodejs.org/en/download/
   - Configure **polipo** proxy for NPM
+  
+    ```
+    npm config set proxy http://127.0.0.1:8123
+    ```
+    
   - Run
   
     ```
