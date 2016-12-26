@@ -2,59 +2,56 @@
 " Mac is 'Drawin', Ubuntu is 'Linux'
 let os = substitute(system('uname'), "\n", "", "")
 
-" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
-call plug#begin('~/.vim/plugged')
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" Make sure you use single quotes
-
+Plugin 'VundleVim/Vundle.vim'
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-
+Plugin 'junegunn/vim-easy-align'
 " Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Group dependencies, vim-snippets depends on ultisnips
-"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
+Plugin 'https://github.com/junegunn/vim-github-dashboard.git'
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
+Plugin 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plugin 'tpope/vim-fireplace', { 'for': 'clojure' }
 " Using a non-master branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
+Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
-
+Plugin 'fatih/vim-go', { 'tag': '*' }
 " Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
+Plugin 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 " Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
-Plug 'taglist.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
+Plugin 'taglist.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " Search with your favorite tool
-Plug 'mileszs/ack.vim'
-
+Plugin 'mileszs/ack.vim'
 " Git plugins
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'sjl/gundo.vim'
-Plug 'majutsushi/tagbar'
-Plug 'kien/rainbow_parentheses.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'sjl/gundo.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'hsanson/vim-android'
+Plugin 'artur-shaik/vim-javacomplete2'
+Plugin 'Valloric/YouCompleteMe'
 
 " Add plugins to &runtimepath
-call plug#end()
+call vundle#end()
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Normal config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype plugin indent on
 set nocompatible
 set nu
 set modeline
@@ -63,7 +60,6 @@ set visualbell
 set errorbells
 set ruler
 set hlsearch incsearch
-filetype plugin indent on
 
 " line width
 set wrap "Wrap lines
@@ -83,16 +79,23 @@ set background=dark
 colorscheme dracula
 set encoding=utf-8
 set fileencoding=utf-8
-set ffs=unix,dos,mac "Default file types
+set ffs=unix,dos,mac 
 
 " Set to auto read when a file is changed from the outside
 set autoread
-
 " set auto write
 set autowrite
 
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
+" Set fold
+set foldenable
+set foldmethod=syntax
+set foldcolumn=0
+set foldlevel=0
+set foldminlines=3
+set foldnestmax=5
+set foldlevelstart=1
+
+" Set leader key
 let mapleader = "\<Space>"
 let g:mapleader = "\<Space>"
 
@@ -107,37 +110,14 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 "autocmd FileType css set omnifunc=csscomplete#CompleteCSS 
 "autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags 
 "autocmd FileType php set omnifunc=phpcomplete#CompletePHP 
-autocmd FileType c set omnifunc=ccomplete#Complete 
+autocmd FileType c setlocal omnifunc=ccomplete#Complete 
 "autocmd FileType java set omnifunc=ccomplete#Complete 
-autocmd FileType java set omnifunc=javacomplete#Complete 
+autocmd FileType java setlocal omnifunc=javacomplete#Complete 
 
 " Show me the overflow.
 if has('syntax') && v:version >= 704
   call matchadd('ColorColumn', '\%' . &textwidth . 'v', 81)
 endif
-
-" We fold when we need to, according to syntax.
-set foldenable
-set foldmethod=syntax
-set foldcolumn=0
-set foldlevel=0
-set foldminlines=3
-set foldnestmax=5
-set foldlevelstart=1
-
-" Wild Side & Completion
-" Enable your wild side, take command completion completion up a notch.
-" Allow for an interesting view when opening the command line menu.
-"set wildmenu wildmode=longest:full
-"set wildoptions=tagfile
-"if has('wildignore') && v:version >= 704 | set wildignorecase | endif
-
-" Ignore a lot of stuff.
-"set wildignore+=*.swp,*.pyc,*.bak,*.class,*.orig
-"set wildignore+=.git,.hg,.bzr,.svn
-"set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.svg
-"set wildignore+=build/*,tmp/*,vendor/cache/*,bin/*
-"set wildignore+=.sass-cache/*
 
 " Set the Vim command history size to a larger number.
 set history=9999
@@ -257,9 +237,7 @@ endfunction
 " Omincpp plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 setlocal omnifunc=syntaxcomplete#Complete
-"setlocal omnifunc=javacomplete#Complete
 set nocp
-"map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 let OmniCpp_GlobalScopeSearch = 1
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_DefaultNamespaces = ["std"]
@@ -308,26 +286,6 @@ nmap <leader>ec :NERDTreeClose<cr>
 let NERDTreeShowBookmarks = 1
 let NERDTreeWinSize = 60 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ctags 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let defaultTags=getcwd()."/tags"
-" let &tags=defaultTags
-
-" function! Add_ClassPath() 
-"    let defaultClassPathFile = getcwd()."/classpath.files"
-"    if filereadable(defaultClassPathFile)
-"        for line in readfile(defaultClassPathFile, '')
-"            if (strlen(line) > 0)
-"                call javacomplete#AddClassPath(line)
-"            endif
-"        endfor
-"    endif
-"endfunction
-
-"map <F11> :call Add_ClassPath()<CR>
-" call Add_ClassPath()
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Eclim settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -347,7 +305,7 @@ map <leader>jm :JavaImportMissing <cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YCM Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.mac_ycmd_conf.py'
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
@@ -378,18 +336,9 @@ set laststatus=2
 " FZF 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:fzf_layout = { 'down': '40%' }
-nnoremap <leader>f :Files<cr>
+nnoremap <leader>fz :FZF<cr>
 nnoremap <leader>fb :Buffers<cr>
 nnoremap <leader>fh :History<cr>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim-dict 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:dict_hosts = [
-    \["dict.org", ["all"]],
-    \["dict.mova.org", []],
-\]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux 
@@ -461,7 +410,6 @@ nnoremap <leader>vt :VimShellTab<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>gu :Gundo<CR>
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rainbow Parentheses 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -483,4 +431,17 @@ au Syntax * RainbowParenthesesLoadBraces
 map <leader>bn :bnext<CR>
 map <leader>bp :bprevious<CR>
 map <leader>bl :buffers<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-javacomplete2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:JavaComplete_LibsPath = '/Users/chao/Software/android-sdk/platforms:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home'
+let g:JavaComplete_SourcesPath = '/Users/chao/Software/android-sdk/sources'
+let g:JavaComplete_ShowExternalCommandsOutput = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-android 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:gradle_path = '/usr/local/bin/gradle'
+let g:android_sdk_path = '/Users/chao/Software/android-sdk'
 
