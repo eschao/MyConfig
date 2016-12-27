@@ -180,6 +180,49 @@ insert mode**
     - ... mapping keys go here ...
     - All the text you want to include in the movement should now be selected
 
+* Execute
+
+**execute** command takes a Vimscript string and performs it as command.
+
+    ```vim
+    :execute "write"  "Vim will write your file
+    :execute "normal! gg"
+    ```
+
+#### Status Lines
+
+* Define
+
+    ```vim
+    :set statusline=%f  " show file path on status line
+    :set statusline=%f\ -\ FileType:\ %y
+    ```
+
+* Use **+** to combine
+
+    ```vim
+    :set statusline=%f
+    :set statusline+=\ -\
+    :set statusline+=FileType:
+    :set statusline+=%y    
+    ```
+
+* Width and Padding
+
+    ```vim
+    " show line number with 4 characters, using spaces to fill. for example: [
+12]
+    :set statusline[%4l]
+    " left padding
+    :set statusline=Current:[%4l]
+    " right padding
+    :set statusline=Total:[%-4L]
+    " use 0 as padding
+    :set statusline=%04l
+    ```
+
+* Show help: **help statusline**
+
 #### Othes commands
 
 Cmd | Function
