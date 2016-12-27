@@ -11,7 +11,7 @@
 
 * Mapping key in buffer
 
-    ```
+    ```vim
     :nnoremap <buffer> <leader>x dd  "only work in current buffer
     ```
 
@@ -19,24 +19,24 @@
 
 * Set Leader key
 
-    ```
+    ```vim
     :let mapleader = "\<Space>"
     ```
 
 * Mapping key with Leader
 
-    ```
+    ```vim
     :nnoremap <leader>d dd
     ```
 * Local Leader
   Only take effect for certain types of files, like Python or Html files
 
-    ```
+    ```vim
     :let maplocalleader = "\\"
     ```
 * Examples
 
-    ```
+    ```vim
     "Edit vimrc
     :nnoremap <leader>ev :tabnew $MYVIMRC<cr>
     
@@ -48,30 +48,30 @@
     
 * Correct typo
 
-    ```
+    ```vim
     :iabbrev adn and "Inputing adn, vim will replace it with and right now
     ```
 
 * Replace some often using strings
     
-    ```
+    ```vim
     :iabbrev @@ chao@gmail.com  "replace with my email
     ```
 
 * Buffer-Local Abbreviation
 
-    ```
+    ```vim
     :iabbrev <buffer> --- &mdash;
     ```
 
 #### A more complicated Mapping
 
-In normal mode, put your cursor over a word and type <leader>". The word will
+  In normal mode, put your cursor over a word and type <leader>". The word will
 be surrounded in double quotes
 
-    ```
+  ```vim
     :nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
-    ```
+  ```
 
   - **viw**: visually select the current word
   - **<esc>**: exit visual mode
@@ -91,13 +91,13 @@ be surrounded in double quotes
 
 * Local settings
 
-    ```
+    ```vim
     :setlocal wrap  "only take effect in current buffer
     ```
 
 * Shadowing
 
-    ```
+    ```vim
     :nnoremap <buffer> Q x
     :nnoremap          Q dd
     ```
@@ -106,29 +106,31 @@ be surrounded in double quotes
 
 #### Autocommands
 
-  **Autocommands** are a way to tell Vim to run certain commands whenever
+**Autocommands** are a way to tell Vim to run certain commands whenever
 certain events happend.
 
 * Structure
 
+  ```
   :autocmd BufNewFile * :write
-            ^         ^ ^
-            |         | |
-            |         | The command to run
-            |         |
-            |         A "pattern" to filter the event
-            |
-            The "event" to watch for
+             ^         ^ ^
+             |         | |
+             |         | The command to run
+             |         |
+             |         A "pattern" to filter the event
+             |
+             The "event" to watch for
+  ```
 
 * Multiple Events
 
-    ```
+    ```vim
     :autocmd BufWritePre,BufRead *.html :normal gg=G
     ```
 
 * FileType Events
 
-    ```
+    ```vim
     "comment out the line
     :autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
     :autocmd FileType python     nnoremap <buffer> <localleader>c I#<esc>
@@ -136,14 +138,14 @@ certain events happend.
 
 * Autocommands & Abbreviations
 
-    ```
+    ```vim
     :autocmd FileType python :iabbrev <buffer> iff if:<left>
     ``` 
 
 * Grouping Autocommands - remove duplicated autocmd when source VIMRC multiple
   times
 
-    ```
+    ```vim
     :augroup testgroup
     :   autocmd BufWrite * :echom "Foo"
     :   autocmd BufWrite * :echom "Bar"
@@ -152,7 +154,7 @@ certain events happend.
     
 * Clearing Groups
     
-    ```
+    ```vim
     :augroup testgroup
     :   autocmd!
     :   autocmd BufWrite * :echom "Cats"
@@ -165,7 +167,7 @@ certain events happend.
 
 * Movement Mappings
 
-    ```
+    ```vim
     :onoremap p i(
     ```
     
@@ -183,6 +185,6 @@ insert mode**
 Cmd | Function
 --- | --------
 set iskeyword? | list all keyword characters 
-<c-c> | exit insert mode
-<c-[> | exit insert mode
+\<c-c> | exit insert mode
+\<c-[> | exit insert mode
 
