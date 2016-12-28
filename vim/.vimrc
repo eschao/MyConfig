@@ -73,13 +73,13 @@ set tabstop=4
 set smarttab
 
 " theme
-syntax enable 
+syntax enable
 set t_Co=256
 set background=dark
 colorscheme dracula
 set encoding=utf-8
 set fileencoding=utf-8
-set ffs=unix,dos,mac 
+set ffs=unix,dos,mac
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -109,15 +109,15 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
-"autocmd FileType python set omnifunc=pythoncomplete#Complete 
-"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS 
-"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags 
-"autocmd FileType css set omnifunc=csscomplete#CompleteCSS 
-"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags 
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP 
-autocmd FileType c setlocal omnifunc=ccomplete#Complete 
-"autocmd FileType java set omnifunc=ccomplete#Complete 
-autocmd FileType java setlocal omnifunc=javacomplete#Complete 
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c setlocal omnifunc=ccomplete#Complete
+"autocmd FileType java set omnifunc=ccomplete#Complete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Show me the overflow.
 if has('syntax') && v:version >= 704
@@ -140,12 +140,12 @@ set cursorline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tab configuration
 map <leader>tn :tabnew %<cr>
-map <leader>te :tabedit 
+map <leader>te :tabedit
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
+map <leader>tm :tabmove
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoVim Python 
+" NeoVim Python
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:python_host_prog = '/usr/bin/python'
 let g:loaded_python_provider = 1
@@ -289,7 +289,7 @@ let g:tagbar_type_objc = {
 nmap <leader>en :NERDTree<cr>
 nmap <leader>ec :NERDTreeClose<cr>
 let NERDTreeShowBookmarks = 1
-let NERDTreeWinSize = 60 
+let NERDTreeWinSize = 60
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Eclim settings
@@ -330,7 +330,7 @@ let g:ycm_warning_symbol = 'W>'
 nmap <leader>yd :YcmDiags<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Airline 
+" Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
@@ -338,7 +338,7 @@ let g:airline#extensions#tabline#fnamemod = ' :t'
 set laststatus=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FZF 
+" FZF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:fzf_layout = { 'down': '40%' }
 nnoremap <leader>fz :FZF<cr>
@@ -346,7 +346,7 @@ nnoremap <leader>fb :Buffers<cr>
 nnoremap <leader>fh :History<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tmux 
+" Tmux
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('$TMUX')
     function! TmuxOrSplitSwitch(wincmd, tmuxdir)
@@ -358,7 +358,7 @@ if exists('$TMUX')
         endif
     endfunction
 
-    let previous_title = substitute(system("tmux display-message -p 
+    let previous_title = substitute(system("tmux display-message -p
                                     \ '#{pane_title}'"), '\n', '', '')
     let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
     let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
@@ -375,13 +375,13 @@ else
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Markdown 
+" Markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufEnter,BufRead,BufNewFile *.markdown,*.mdown,*.mkd,*.mkdn,README.md 
-            \ setf markdown 
+autocmd BufEnter,BufRead,BufNewFile *.markdown,*.mdown,*.mkd,*.mkdn,README.md
+            \ setf markdown
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Syntastic 
+" Syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
@@ -392,19 +392,19 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Color shceme switch 
+" Color shceme switch
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>nc :NextColorScheme<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ack.vim & ag 
+" Ack.vim & ag
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VimShell 
+" VimShell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>vs :VimShell<CR>
 nnoremap <leader>vp :VimShellPop<CR>
@@ -417,7 +417,7 @@ nnoremap <leader>gs :GundoShow<CR>
 nnoremap <leader>gh :GundoHide<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Rainbow Parentheses 
+" Rainbow Parentheses
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -425,10 +425,10 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " Debug syntax
- map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") 
+ map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
             \ . '> trans<'
             \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") 
+            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")
             \ . ">"<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -446,8 +446,27 @@ let g:JavaComplete_SourcesPath = '/Users/chao/Software/android-sdk/sources'
 let g:JavaComplete_ShowExternalCommandsOutput = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-android 
+" vim-android
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:gradle_path = '/usr/local/bin/gradle'
 let g:android_sdk_path = '/Users/chao/Software/android-sdk'
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Customization
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" remove trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
+
+function! ShowSpaces(...)
+    let @/='\v(\s+$)|( +\ze\t)'
+    let old_hlsearch = &hlsearch
+    if !a:0
+        let &hlsearch = !&hlsearch
+    else
+        let &hlsearch = a:1
+    end
+
+    return old_hlsearch
+endfunction
+
+nnoremap <F12> :call ShowSpaces(1)<CR>
