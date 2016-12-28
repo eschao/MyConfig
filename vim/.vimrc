@@ -44,6 +44,8 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'hsanson/vim-android'
 Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'edkolev/promptline.vim'
 
 " Add plugins to &runtimepath
 call vundle#end()
