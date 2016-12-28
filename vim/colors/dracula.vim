@@ -21,22 +21,24 @@ let g:colors_name = "dracula"
 
 hi Cursor ctermfg=17 ctermbg=231 cterm=NONE guifg=#282a36 guibg=#f8f8f0 gui=NONE
 hi Visual ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#44475a gui=NONE
-hi CursorLine ctermfg=NONE ctermbg=233 cterm=bold guifg=NONE guibg=#3d3f49 gui=NONE
-hi CursorLineNR ctermfg=221 ctermbg=233 cterm=bold guifg=NONE guibg=#3d3f49 gui=NONE
-hi CursorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#3d3f49 gui=NONE
+hi CursorLine ctermfg=NONE ctermbg=233 cterm=bold guifg=NONE guibg=#121212 gui=bold
+hi CursorLineNR ctermfg=221 ctermbg=233 cterm=bold guifg=#ffdf5f guibg=#121212 gui=bold
+hi CursorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#44475a gui=NONE
 hi ColorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#3d3f49 gui=NONE
 hi LineNr ctermfg=246 ctermbg=236 cterm=NONE guifg=#909194 guibg=#3d3f49 gui=NONE
-hi VertSplit ctermfg=59 ctermbg=236 cterm=NONE guifg=#64666d guibg=#64666d gui=NONE
+hi VertSplit ctermfg=59 ctermbg=236 cterm=NONE guifg=#5f5f5f guibg=#64666d gui=NONE
 hi MatchParen ctermfg=212 ctermbg=NONE cterm=underline guifg=#ff79c6 guibg=NONE gui=underline
 hi StatusLine ctermfg=231 ctermbg=236 cterm=bold guifg=#f8f8f2 guibg=#64666d gui=bold
 hi StatusLineNC ctermfg=231 ctermbg=236 cterm=bold guifg=#f8f8f2 guibg=#64666d gui=NONE
 hi Pmenu ctermfg=NONE ctermbg=55 cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi PmenuSel ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#44475a gui=NONE
 hi IncSearch ctermfg=white ctermbg=161 cterm=NONE guifg=#282a36 guibg=#f1fa8c gui=NONE
-hi Search ctermfg=white ctermbg=161 cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi Search ctermfg=white ctermbg=161 cterm=NONE guifg=white guibg=#d7005f gui=NONE
 hi Directory ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bd93f9 guibg=NONE gui=NONE
 hi Folded ctermfg=61 ctermbg=235 cterm=NONE guifg=#6272a4 guibg=#282a36 gui=NONE
-
+hi SignColumn ctermfg=246 ctermbg=235 cterm=NONE guifg=#909194 guibg=#44475a gui=NONE
+hi FoldColmun ctermfg=246 ctermbg=235 cterm=NONE guifg=#909194 guibg=#44475a gui=NONE
+hi Normal guifg=#f8f8f2 guibg=#282a36 gui=NONE
 hi Boolean ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bd93f9 guibg=NONE gui=NONE
 hi Character ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bd93f9 guibg=NONE gui=NONE
 hi Comment ctermfg=245 ctermbg=NONE cterm=NONE guifg=#6272a4 guibg=NONE gui=NONE
@@ -54,6 +56,7 @@ hi Function ctermfg=84 ctermbg=NONE cterm=NONE guifg=#50fa7b guibg=NONE gui=NONE
 hi Identifier ctermfg=117 ctermbg=NONE cterm=NONE guifg=#8be9fd guibg=NONE gui=italic
 hi Keyword ctermfg=212 ctermbg=NONE cterm=NONE guifg=#ff79c6 guibg=NONE gui=NONE
 hi Label ctermfg=228 ctermbg=NONE cterm=NONE guifg=#f1fa8c guibg=NONE gui=NONE
+hi NonText ctermfg=231 ctermbg=NONE cterm=NONE guifg=#525563 guibg=#282a36 gui=NONE
 hi Number ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bd93f9 guibg=NONE gui=NONE
 hi Operator ctermfg=212 ctermbg=NONE cterm=NONE guifg=#ff79c6 guibg=NONE gui=NONE
 hi PreProc ctermfg=212 ctermbg=NONE cterm=NONE guifg=#ff79c6 guibg=NONE gui=NONE
@@ -65,7 +68,7 @@ hi String ctermfg=228 ctermbg=NONE cterm=NONE guifg=#f1fa8c guibg=NONE gui=NONE
 hi Tag ctermfg=212 ctermbg=NONE cterm=NONE guifg=#ff79c6 guibg=NONE gui=NONE
 hi Title ctermfg=231 ctermbg=NONE cterm=bold guifg=#f8f8f2 guibg=NONE gui=bold
 hi Todo ctermfg=61 ctermbg=NONE cterm=inverse,bold guifg=#6272a4 guibg=NONE gui=inverse,bold
-hi Type guifg=#4093cc guibg=NONE gui=bold ctermfg=lightblue ctermbg=NONE cterm=NONE
+hi Type guifg=#5fd7ff guibg=NONE gui=bold ctermfg=lightblue ctermbg=NONE cterm=NONE
 hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline guifg=NONE guibg=NONE gui=underline
 hi rubyClass ctermfg=212 ctermbg=NONE cterm=NONE guifg=#ff79c6 guibg=NONE gui=NONE
 hi rubyFunction ctermfg=84 ctermbg=NONE cterm=NONE guifg=#50fa7b guibg=NONE gui=NONE
@@ -111,6 +114,18 @@ hi cssClassName ctermfg=84 ctermbg=NONE cterm=NONE guifg=#50fa7b guibg=NONE gui=
 hi cssValueLength ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bd93f9 guibg=NONE gui=NONE
 hi cssCommonAttr ctermfg=81 ctermbg=NONE cterm=NONE guifg=#6be5fd guibg=NONE gui=NONE
 hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi TabLineFill  guifg=#333333 guibg=#282a36 gui=none
+hi TabLine      guifg=#666666 guibg=#282a36 gui=none
+hi TabLineSel   guifg=WHITE guibg=#282a36 gui=none
+
+" Vim Script {{{
+hi vimGroupName ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE
+hi vimGroup ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE
+hi vimOption ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE
+hi vimHiCtermFgBg ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE
+hi vimHiGuiFgBg ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE
+" }}}
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Customize
@@ -120,20 +135,20 @@ hi Return guifg=#66d077 guibg=NONE gui=NONE ctermfg=161 ctermbg=NONE cterm=bold
 hi BuiltInClass guifg=#66d077 guibg=NONE gui=NONE ctermfg=green ctermbg=NONE cterm=bold
 
 " C
-hi cType guifg=#4093cc guibg=NONE gui=bold ctermfg=lightblue ctermbg=NONE cterm=bold
+hi cType guifg=#5fd7ff guibg=NONE gui=bold ctermfg=lightblue ctermbg=NONE cterm=bold
 
 " Java
 hi javaOperator guifg=#66d077 guibg=NONE gui=NONE ctermfg=green ctermbg=NONE cterm=bold
 hi javaSDKClass guifg=#66d077 guibg=NONE gui=NONE ctermfg=green ctermbg=NONE cterm=bold
-hi javaType guifg=#4093cc guibg=NONE gui=bold ctermfg=lightblue ctermbg=NONE cterm=bold
-hi javaClassDecl guifg=#4093cc guibg=NONE gui=bold ctermfg=lightblue ctermbg=NONE cterm=bold
-hi javaScopeDecl guifg=#4093cc guibg=NONE gui=bold ctermfg=lightblue ctermbg=NONE cterm=bold
-hi javaConditional guifg=#4093cc guibg=NONE gui=NONE ctermfg=lightblue ctermbg=NONE cterm=NONE
+hi javaType guifg=#5fd7ff guibg=NONE gui=bold ctermfg=lightblue ctermbg=NONE cterm=bold
+hi javaClassDecl guifg=#5fd7ff guibg=NONE gui=bold ctermfg=lightblue ctermbg=NONE cterm=bold
+hi javaScopeDecl guifg=#5fd7ff guibg=NONE gui=bold ctermfg=lightblue ctermbg=NONE cterm=bold
+hi javaConditional guifg=#5fd7ff guibg=NONE gui=NONE ctermfg=lightblue ctermbg=NONE cterm=NONE
 hi def link javaConstant Number
 
 " JavaScript
-hi javaScriptIdentifier guifg=#4093cc guibg=NONE gui=bold ctermfg=lightblue ctermbg=NONE cterm=bold
-hi javaScriptFunction guifg=#4093cc guibg=NONE gui=bold ctermfg=lightblue ctermbg=NONE cterm=bold
+hi javaScriptIdentifier guifg=#5fd7ff guibg=NONE gui=bold ctermfg=lightblue ctermbg=NONE cterm=bold
+hi javaScriptFunction guifg=#5fd7ff guibg=NONE gui=bold ctermfg=lightblue ctermbg=NONE cterm=bold
 hi javaScriptBraces guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi javaScriptNew guifg=#66d077 guibg=NONE gui=NONE ctermfg=green ctermbg=NONE cterm=NONE
 hi def link javaScriptConditional Type

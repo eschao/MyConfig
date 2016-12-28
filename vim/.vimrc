@@ -46,6 +46,8 @@ Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'edkolev/promptline.vim'
+"Plugin 'Shougo/vimshell.vim'
+"Plugin 'Shougo/vimproc.vim', {'do' : 'make'}
 
 "Python
 Plugin 'davidhalter/jedi-vim'
@@ -455,6 +457,20 @@ let g:JavaComplete_ShowExternalCommandsOutput = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:gradle_path = '/usr/local/bin/gradle'
 let g:android_sdk_path = '/Users/chao/Software/android-sdk'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CtrlP
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:ctrlp_types = ['fil', 'buf', 'mru']
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GUI settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set guifont=Source\ Code\ Pro:h13
+" disable scrollbar
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Customization
