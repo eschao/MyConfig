@@ -27,7 +27,7 @@ Plugin 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 " Plugin outside ~/.vim/plugged with post-update hook
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Unmanaged plugin (manually installed and updated)
-Plugin 'taglist.vim'
+"Plugin 'taglist.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " Search with your favorite tool
@@ -46,6 +46,9 @@ Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'edkolev/promptline.vim'
+
+"Python
+Plugin 'davidhalter/jedi-vim'
 
 " Add plugins to &runtimepath
 call vundle#end()
@@ -92,7 +95,7 @@ set autowrite
 set foldenable
 set foldmethod=syntax
 set foldcolumn=0
-set foldlevel=0
+set foldlevel=99
 set foldminlines=3
 set foldnestmax=5
 set foldlevelstart=1
