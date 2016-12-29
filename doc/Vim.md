@@ -59,6 +59,18 @@
 
 ## Install Watchman for CommandT
 
+* Compile Command-T
+
+    ```vim
+    cd ~/.vim/bundle/command-t/ruby/command-t
+    ruby extconf.rb
+    make
+    ```
+
+* Install Watchman
+
+    ```vim
     brew install watchman
+    ```
 
 
