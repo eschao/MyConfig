@@ -13,13 +13,13 @@
 * Install **NPM** for JavaScript:
   - Download from: https://nodejs.org/en/download/
   - Configure **polipo** proxy for NPM
-  
+
     ```
     npm config set proxy http://127.0.0.1:8123
     ```
-    
+
   - Run
-  
+
     ```
     npm install npm@latest -g
     ```
@@ -30,9 +30,9 @@
     cd ~/.vim/bundle/YouCompleteMe
     ./install.py --clang-completer --gocode-completer --tern-completer
     ```
-    
+
 ## Install **ctags**
-    
+
     brew isntall ctags
 
 ## Install **Ack**
@@ -42,5 +42,23 @@
 ## Install Java plugins
 
     Plugin "hsanson/vim-android"
+
+## Install Markdown-Preview
+
+    npm -g install instant-markdown-d
+
+## Install FZF
+
+* Install FZF
+
+    ```vim
+    brew install fzf
+    ```
+
+* Install XQuartz on macOS (**Not useful in MacVim)
+
+## Install Watchman for CommandT
+
+    brew install watchman
 
 

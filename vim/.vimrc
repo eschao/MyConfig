@@ -46,11 +46,22 @@ Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'edkolev/promptline.vim'
-"Plugin 'Shougo/vimshell.vim'
-"Plugin 'Shougo/vimproc.vim', {'do' : 'make'}
+Plugin 'Shougo/vimshell.vim'
+Plugin 'Shougo/vimproc.vim', {'do' : 'make'}
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimfiler.vim'
+Plugin 'kshenoy/vim-signature'
+Plugin 'gregsexton/gitv'
+Plugin 'Yggdroot/indentLine'
+Plugin 'ryanss/vim-hackernews'
+Plugin 'wincent/command-t'
+Plugin 'suan/vim-instant-markdown'
 
 "Python
 Plugin 'davidhalter/jedi-vim'
+
+"Plugin 'mattn/emmet-vim'
+"Plugin 'SirVer/ultisnips'
 
 " Add plugins to &runtimepath
 call vundle#end()
@@ -143,13 +154,40 @@ set mat=2 "How many tenths of a second to blink
 set cursorline
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Window
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>wh <C-w>h
+nmap <leader>wj <C-w>j
+nmap <leader>wk <C-w>k
+nmap <leader>wl <C-w>l
+nmap <leader>wH <C-w>H
+nmap <leader>wJ <C-w>J
+nmap <leader>wK <C-w>K
+nmap <leader>wL <C-w>L
+nmap <leader>w_ <C-w>_
+nmap <leader>w\| <C-w>\|
+nmap <leader>w= <C-w>=
+nmap <leader>ws <C-w>s
+nmap <leader>wv <C-w>v
+nmap <leader>ww <C-w>w
+nmap <leader>wq <C-w>q
+nmap <leader>wc <C-w>c
+nmap <leader>wo <C-w>o
+nmap <leader>wr <C-w>r
+nmap <leader>wR <C-w>R
+nmap <leader>wz <C-w>z
+nmap <leader>w] <C-w>]
+nmap <leader>w} <C-w>}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tab settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tab configuration
-map <leader>tn :tabnew %<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
+"map <leader>tn :tabnew %<cr>
+nmap <leader>tn :tabnew<cr>
+nmap <leader>te :tabedit
+nmap <leader>tc :tabclose<cr>
+nmap <leader>tm :tabmove
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoVim Python
@@ -161,15 +199,15 @@ let g:python_host_skip_check = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CSCOPE plugin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader>cs :CS find s <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>cg :CS find g <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>cc :CS find c <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>ct :CS find t <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>ce :CS find e <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>cf :CS find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <leader>ci :CS find i <C-R>=expand("<cfile>")<CR><CR>
-nmap <leader>cd :CS find d <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>co :CS open <C-R>=expand("<cword>")<CR><CR>
+"nmap <leader>cs :CS find s <C-R>=expand("<cword>")<CR><CR>
+"nmap <leader>cg :CS find g <C-R>=expand("<cword>")<CR><CR>
+"nmap <leader>cc :CS find c <C-R>=expand("<cword>")<CR><CR>
+"nmap <leader>ct :CS find t <C-R>=expand("<cword>")<CR><CR>
+"nmap <leader>ce :CS find e <C-R>=expand("<cword>")<CR><CR>
+"nmap <leader>cf :CS find f <C-R>=expand("<cfile>")<CR><CR>
+"nmap <leader>ci :CS find i <C-R>=expand("<cfile>")<CR><CR>
+"nmap <leader>cd :CS find d <C-R>=expand("<cword>")<CR><CR>
+"nmap <leader>co :CS open <C-R>=expand("<cword>")<CR><CR>
 
 set csprg=/usr/bin/cscope
 "set csprg=/usr/local/bin/cscope
@@ -189,7 +227,7 @@ endif
 
 map <F12> :call Do_CsTag()<CR>
 let g:iswindows=0
-function Do_CsTag()
+function! Do_CsTag()
     let dir = getcwd()
     if filereadable("tags")
         if(g:iswindows==1)
@@ -263,7 +301,7 @@ let g:tagbar_autofocus = 1
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 nmap <leader>tg :Tagbar<cr>
 
-""" For Objective-C
+" For Objective-C
 let g:tagbar_type_objc = {
   \ 'ctagstype': 'objc',
   \ 'ctagsargs': [
@@ -302,17 +340,17 @@ let NERDTreeWinSize = 60
 " Eclim settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Project part
-map <leader>ep :ProjectsTree <cr>
+"map <leader>ep :ProjectsTree <cr>
 
 " LocateFile Part
-let g:EclimLocateFileDefaultAction='tabnew'
-map <leader>el :LocateFile <cr>
+"let g:EclimLocateFileDefaultAction='tabnew'
+"map <leader>el :LocateFile <cr>
 
-map <leader>jc :JavaCorrect <cr>
-map <leader>jd :JavaDocComment <cr>
-map <leader>jv :Validate <cr>
-map <leader>ji :JavaImport <cr>
-map <leader>jm :JavaImportMissing <cr>
+"map <leader>jc :JavaCorrect <cr>
+"map <leader>jd :JavaDocComment <cr>
+"map <leader>jv :Validate <cr>
+"map <leader>ji :JavaImport <cr>
+"map <leader>jm :JavaImportMissing <cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YCM Settings
@@ -349,8 +387,8 @@ set laststatus=2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:fzf_layout = { 'down': '40%' }
 nnoremap <leader>fz :FZF<cr>
-nnoremap <leader>fb :Buffers<cr>
-nnoremap <leader>fh :History<cr>
+"nnoremap <leader>fb :Buffers<cr>
+"nnoremap <leader>fh :History<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux
@@ -413,6 +451,9 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VimShell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vimshell_prompt_expr =
+\ 'escape(fnamemodify(getcwd(), ":~").">", "\\[]()?! ")." "'
+let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
 nnoremap <leader>vs :VimShell<CR>
 nnoremap <leader>vp :VimShellPop<CR>
 nnoremap <leader>vt :VimShellTab<CR>
@@ -462,6 +503,15 @@ let g:android_sdk_path = '/Users/chao/Software/android-sdk'
 " CtrlP
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:ctrlp_types = ['fil', 'buf', 'mru']
+nmap <leader>cp     :CtrlP<cr>
+nmap <leader>cpm    :CtrlPMRUFiles<cr>
+nmap <leader>cpb    :CtrlPBuffer<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Buffergator
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:buffergator_viewport_split_policy = 'B'
+let g:buffergator_autoupdate = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GUI settings
@@ -471,6 +521,32 @@ set guifont=Source\ Code\ Pro:h13
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Markdown-preview
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:instant_markdown_slow = 1
+let g:instant_markdown_allow_unsafe_content = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Markdown-preview
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>hk :HackerNews
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Command-T
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>ct :CommandT<cr>
+let g:CommandTMaxFiles = 1000000
+let g:CommandTSuppressMaxFilesWarning = 1
+let g:CommandTFileScanner = 'watchman'
+let g:CommandTInputDebounce = 50
+let g:CommandTSmartCase = 1
+let g:CommandTMaxCachedDirectories = 10
+
+if &term =~ "xterm" || &term =~ "screen"
+    let g:CommandTCancelMap = ['<ESC>', '<C-c>']
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Customization
@@ -491,3 +567,4 @@ function! ShowSpaces(...)
 endfunction
 
 nnoremap <F12> :call ShowSpaces(1)<CR>
+
