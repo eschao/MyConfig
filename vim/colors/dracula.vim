@@ -31,7 +31,7 @@ hi MatchParen ctermfg=212 ctermbg=NONE cterm=underline guifg=#ff79c6 guibg=NONE 
 hi StatusLine ctermfg=231 ctermbg=236 cterm=bold guifg=#f8f8f2 guibg=#64666d gui=bold
 hi StatusLineNC ctermfg=231 ctermbg=236 cterm=bold guifg=#f8f8f2 guibg=#64666d gui=NONE
 hi Pmenu ctermfg=NONE ctermbg=55 cterm=NONE guifg=NONE guibg=#5f6a8d gui=NONE
-hi PmenuSel ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#bd93f9 gui=NONE
+hi PmenuSel ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#cc0066 gui=NONE
 hi IncSearch ctermfg=white ctermbg=161 cterm=NONE guifg=#282a36 guibg=#f1fa8c gui=NONE
 hi Search ctermfg=white ctermbg=161 cterm=NONE guifg=white guibg=#d7005f gui=NONE
 hi Directory ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bd93f9 guibg=NONE gui=NONE
