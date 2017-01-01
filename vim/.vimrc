@@ -60,6 +60,9 @@ Plugin 'suan/vim-instant-markdown'
 "Python
 Plugin 'davidhalter/jedi-vim'
 
+"Mine
+Plugin 'eschao/vim-dict'
+
 "Plugin 'mattn/emmet-vim'
 "Plugin 'SirVer/ultisnips'
 
@@ -112,6 +115,11 @@ set foldlevel=99
 set foldminlines=3
 set foldnestmax=5
 set foldlevelstart=1
+
+" Wildmenu
+set wildmenu
+set wildmode=longest:full,full
+set wildignore=*.o,*.class,*.jpg,*.png,*.jpeg
 
 " Set leader key
 let mapleader = "\<Space>"
@@ -567,4 +575,11 @@ function! ShowSpaces(...)
 endfunction
 
 nnoremap <F12> :call ShowSpaces(1)<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Online Bing Dictionary
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>lw :call dict#LookupCWord()<cr>
+nnoremap <leader>lei :call dict#LookupEnglish()<cr>
+nnoremap <leader>lci :call dict#LookupChinese()<cr>
 
