@@ -38,6 +38,7 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'sjl/gundo.vim'
 Plugin 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plugin 'junegunn/vim-easy-align'
+Plugin 'yonchu/accelerated-smooth-scroll' " Smooth scroll with <C-D> <C-U>
 
 Plugin 'sheerun/vim-polyglot'
 Plugin 'hsanson/vim-android'
@@ -62,7 +63,6 @@ Plugin 'artur-shaik/vim-javacomplete2'
 """
 Plugin 'suan/vim-instant-markdown'
 Plugin 'jceb/vim-orgmode'
-Plugin 'rhysd/open-pdf.vim'
 
 """
 " For languages
@@ -70,6 +70,13 @@ Plugin 'rhysd/open-pdf.vim'
 Plugin 'davidhalter/jedi-vim' " Python
 Plugin 'fatih/vim-go', { 'tag': '*' }
 Plugin 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+Plugin 'vim-syntastic/syntastic'
+
+"""
+" React native
+"""
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 """
 " Mine
@@ -384,13 +391,17 @@ autocmd BufEnter,BufRead,BufNewFile *.markdown,*.mdown,*.mkd,*.mkdn,README.md
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
+" Recommended settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" For JSX
+let g:syntastic_javascript_checkers = ['eslint']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ack.vim & ag
@@ -494,6 +505,11 @@ let g:CommandTMaxCachedDirectories = 10
 if &term =~ "xterm" || &term =~ "screen"
     let g:CommandTCancelMap = ['<ESC>', '<C-c>']
 endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" React Native
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:jsx_ext_required = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Customization

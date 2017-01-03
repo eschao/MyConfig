@@ -18,3 +18,15 @@ http://www.monobjc.net/xcode-project-file-format.html
 
 * http://bling.github.io/blog/2013/08/16/modularizing-vimscript/
 * http://learnvimscriptthehardway.stevelosh.com/
+
+## Programmer sites
+
+* https://hackernoon.com/
+* http://javascriptweekly.com/
+* http://mobilewebweekly.co/
+* http://www.hackernewsletter.com/
+* http://lambda-the-ultimate.org/
+
+## Others
+
+* http://www.aldaily.com/feed/

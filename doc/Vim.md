@@ -73,4 +73,21 @@
     brew install watchman
     ```
 
+## Install plugins for **React Native**
+
+* Install plugins
+    - **mxw/vim-jsx**
+    - **pangloss/vim-javascript**
+
+* Disable jsx snytax hilight in js file
+    ```vim
+    let g:jsx_ext_required = 0
+    ```
+
+* Install for syntastic
+    ```bash
+    npm install -g eslint
+    npm install -g babel-eslint
+    npm install -g eslint-plugin-react
+    ```
 
