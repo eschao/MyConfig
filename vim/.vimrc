@@ -62,6 +62,7 @@ Plugin 'artur-shaik/vim-javacomplete2'
 """
 Plugin 'suan/vim-instant-markdown'
 Plugin 'jceb/vim-orgmode'
+Plugin 'rhysd/open-pdf.vim'
 
 """
 " For languages
