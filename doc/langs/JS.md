@@ -56,7 +56,18 @@
     ```js
     class Animal {
         constructor() {
-            ...
+            this.name = "animal";
+        }
+
+        memberFunc1() {
+        }
+
+        get name() {
+            return this.name;
+        }
+
+        set name(value) {
+            this.name = value;
         }
     }
 
@@ -211,4 +222,189 @@
     console.log(adder.add(1));
     console.log(adder.add2(1));
     ```
+* Example - No binding of arguments
+    - Arrow functions do not bind an **arguments** object
+    ```js
+    var arguments = 42;
+    var arr = () => arguments;
+    arr(); // 42
 
+    function foo() {
+        // foo's implicit arguments binding
+        var f = (i) => arguments[0] + i;
+        return f(2);
+    }
+    foo(1); // 3
+    ```
+
+    - Using **rest parameters to replace **arguments** object
+    ```js
+    function foo() {
+        var f = (...args) => args[0];
+        return f(2);
+    }
+    foo(1); // 2
+    ```
+* Example - used as methods
+    ```js
+    'use strict';
+    var obj = {
+        i: 10,
+        b: () => console.log(this.i, this);
+        c: function() {
+            console.log(this.i, this);
+        }
+    };
+
+    obj.b(); // prints undefined, Window
+    obj.c(); // prints 10, Object {...}
+    ```
+
+    ```js
+    'use strict';
+    var obj = { a: 10 };
+    Object.defineProperty(obj, "b", {
+        get: () => {
+            console.log(this.a, typeof this.a, this);
+            return this.a + 10;
+        }
+    });
+
+    obj.b(); // undefined a since this represents Window
+    ```
+
+* Example - Use of the **new** operator
+    ```js
+    var Foo = () => {};
+    var foo = new Foo(): // TypeError: Foo is not a constrcutor
+    ```
+
+* Example - Use of **prototype** property
+    ```js
+    var Foo = () => {};
+    console.log(Foo.prototpye); // undefined
+    ```
+
+* Returning Object literal
+    ```js
+    var func = () => ({ foo: 1 }); // Remember to wrap object in parentheses
+
+    var func = () => { foo: 1}; // return undefined
+    var func = () => { foo: function() {} }; // SyntaxError
+    ```
+
+*  Can't line breaks
+    ```js
+    var func = ()
+                => 1; // SyntaxError: expected expression, got '=>'
+    ```
+
+* Parsing order
+    ```js
+    let callback;
+
+    callback = callback || function() {}; // ok
+    callback = callback || () => {}; // SyntaxError
+    callback = callback || (() => {}); // ok
+    ```
+* Other examples
+    ```js
+    let empty = () => {};
+
+    (() => "foobar")(); // return "foobar"
+
+    var simple = a => a > 15 ? 15 : a;
+    simple(16); // 15;
+    simple(10); // 10
+
+    promise.then(a => {
+        // do something
+    }).then(b => {
+        // do others
+    });
+    ```
+#### let
+
+* **let** statement declares a block scope local variable, optionally
+  initilizing it to a value
+
+* Syntax
+    ```js
+    let var1 [=value1] [, var2 [=value2]];
+    ```
+
+* Different scope with **var**
+    - **var** defines a variable globally or entire function regardless of block
+      scope
+    - **let** defines a variable is limited in scope to the block, statement and
+      expression
+    ```js
+    function func() {
+        var x = 1;
+        let y = 1;
+
+        if (true) {
+            var x = 2;
+            let y = 2;
+            console.log(x); // 2
+            console.log(y); // 2
+        }
+
+        console.log(x); // 2
+        console.log(y); // 1;
+    }
+    ```
+    ```js
+    var a = 1;
+    var b = 2;
+    if (a === 1) {
+        var a = 11; // global variable a
+        let b = 22; // b scope is in if block
+
+        console.log(a); // 11
+        console.log(b); // 22
+    }
+
+    console.log(a); // 11
+    console.log(b); // 2
+    ```
+- Use in **for** loop
+    ```js
+    for (let i = 0; i <= 5; ++i) {
+        let it = ...;
+    }
+    ```
+- Not global variable
+    ```js
+    var x = 'global';
+    let y = 'global';
+    console.log(this.x); // global
+    console.log(this.y); // undefined
+    ```
+- Error usage
+    ```js
+    if (x) {
+        let foo;
+        let foo; // SyntaxError
+    }
+
+    function f() {
+        console.log(foo);
+        let foo = 2;
+    }- Error usage
+
+    switch (x) {
+        case 0:
+            let foo;
+            break;
+
+        case 1:
+            let foo; // SyntaxError
+            break;
+    }
+
+    function fn(n) {
+        for (let n of n.a) { // TypeError
+            console.log(n);
+        }
+    }

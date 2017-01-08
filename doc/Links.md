@@ -19,6 +19,10 @@ http://www.monobjc.net/xcode-project-file-format.html
 * http://bling.github.io/blog/2013/08/16/modularizing-vimscript/
 * http://learnvimscriptthehardway.stevelosh.com/
 
+## Vim tips
+
+* https://hashrocket.com/blog/posts/understanding-the-buffer-list-in-vim-part-1
+
 ## Programmer sites
 
 * https://hackernoon.com/
@@ -30,3 +34,11 @@ http://www.monobjc.net/xcode-project-file-format.html
 ## Others
 
 * http://www.aldaily.com/feed/
+
+## JS, React
+
+* https://flowtype.org/docs/getting-started.html
+* https://redux-saga.github.io/redux-saga/docs/introduction/BeginnerTutorial.html
+* http://redux.js.org/docs/introduction/index.html
+* https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.biq1qjdp9
+* https://facebook.github.io/react/docs/thinking-in-react.html

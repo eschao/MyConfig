@@ -91,3 +91,10 @@
     npm install -g eslint-plugin-react
     ```
 
+## Ten for Javascript complete
+
+* Create **.tern-config** in home directory for global configuration
+* Create **.tern-project** in the current directory or one of the directories
+  above that. If no this file, it will search global **.tern-config**
+
+

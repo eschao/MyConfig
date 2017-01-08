@@ -34,11 +34,11 @@ Plugin 'gregsexton/gitv'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'wincent/command-t'
-Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'sjl/gundo.vim'
 Plugin 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plugin 'junegunn/vim-easy-align'
 Plugin 'yonchu/accelerated-smooth-scroll' " Smooth scroll with <C-D> <C-U>
+Plugin 'jlanzarotta/bufexplorer'
 
 Plugin 'sheerun/vim-polyglot'
 Plugin 'hsanson/vim-android'
@@ -59,24 +59,25 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'artur-shaik/vim-javacomplete2'
 
 """
+" Javascript
+"""
+Plugin 'ternjs/tern_for_vim' " autocompletion
+Plugin 'pangloss/vim-javascript' " Syntax hilight
+Plugin 'mxw/vim-jsx' " react native syntax
+Plugin 'flowtype/vim-flow' " flow
+
+"""
 " For doc: Markdown, OrgMode
 """
-Plugin 'suan/vim-instant-markdown'
+"Plugin 'suan/vim-instant-markdown'
 Plugin 'jceb/vim-orgmode'
 
 """
 " For languages
-"""
-Plugin 'davidhalter/jedi-vim' " Python
+""" Plugin 'davidhalter/jedi-vim' " Python
 Plugin 'fatih/vim-go', { 'tag': '*' }
 Plugin 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plugin 'vim-syntastic/syntastic'
-
-"""
-" React native
-"""
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
 
 """
 " Mine
@@ -96,6 +97,7 @@ Plugin 'ryanss/vim-hackernews'
 "Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "Plugin 'tpope/vim-fireplace', { 'for': 'clojure' }
 "Plugin 'https://github.com/junegunn/vim-github-dashboard.git'
+"Plugin 'jeetsukumaran/vim-buffergator'
 
 " Add plugins to &runtimepath
 call vundle#end()
@@ -164,8 +166,13 @@ nnoremap <leader>ev :tabnew $MYVIMRC<cr>
 " Source vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Conceal
+map <leader>cl :exec &conceallevel ? "set conceallevel=0" :
+            \ "set conceallevel=1"<CR>
+
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
+
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 "autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -404,6 +411,11 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Javascript
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:javascript_plugin_flow = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ack.vim & ag
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if executable('ag')
@@ -447,6 +459,9 @@ au Syntax * RainbowParenthesesLoadBraces
 map <leader>bn :bnext<CR>
 map <leader>bp :bprevious<CR>
 map <leader>bl :buffers<CR>
+map <leader>bd :bd<CR>
+map <leader>bw :bw<CR>
+map <leader>bb :ls<CR>:buffer<Space>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-javacomplete2
