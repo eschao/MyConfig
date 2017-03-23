@@ -47,3 +47,6 @@ http://www.monobjc.net/xcode-project-file-format.html
 
 ## RxJava
 * http://blog.danlew.net/2014/09/22/grokking-rxjava-part-2/
+
+## Docker
+* http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/
