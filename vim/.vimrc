@@ -122,8 +122,8 @@ set textwidth=80
 
 " Tab
 set expandtab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set smarttab
 
 " theme
@@ -185,6 +185,7 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " For performance, turn off cursoline for php filetype
 autocmd FileType php setlocal nocursorline foldmethod=manual
+autocmd BufRead * normal zR
 
 " Show me the overflow.
 if has('syntax') && v:version >= 704
@@ -214,28 +215,33 @@ set ttyfast
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Window
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader>wh <C-w>h
-nmap <leader>wj <C-w>j
-nmap <leader>wk <C-w>k
-nmap <leader>wl <C-w>l
-nmap <leader>wH <C-w>H
-nmap <leader>wJ <C-w>J
-nmap <leader>wK <C-w>K
-nmap <leader>wL <C-w>L
-nmap <leader>w_ <C-w>_
-nmap <leader>w\| <C-w>\|
-nmap <leader>w= <C-w>=
-nmap <leader>ws <C-w>s
-nmap <leader>wv <C-w>v
-nmap <leader>ww <C-w>w
-nmap <leader>wq <C-w>q
-nmap <leader>wc <C-w>c
-nmap <leader>wo <C-w>o
-nmap <leader>wr <C-w>r
-nmap <leader>wR <C-w>R
-nmap <leader>wz <C-w>z
-nmap <leader>w] <C-w>]
-nmap <leader>w} <C-w>}
+nmap <leader>w <C-w>
+
+"nmap <leader>wh <C-w>h
+"nmap <leader>wj <C-w>j
+"nmap <leader>wk <C-w>k
+"nmap <leader>wl <C-w>l
+"nmap <leader>wH <C-w>H
+"nmap <leader>wJ <C-w>J
+"nmap <leader>wK <C-w>K
+"nmap <leader>wL <C-w>L
+"nmap <leader>w_ <C-w>_
+"nmap <leader>w\| <C-w>\|
+"nmap <leader>w= <C-w>=
+"nmap <leader>ws <C-w>s
+"nmap <leader>wv <C-w>v
+"nmap <leader>ww <C-w>w
+"nmap <leader>wq <C-w>q
+"nmap <leader>wc <C-w>c
+"nmap <leader>wo <C-w>o
+"nmap <leader>wr <C-w>r
+"nmap <leader>wR <C-w>R
+"nmap <leader>wz <C-w>z
+"nmap <leader>w] <C-w>]
+"nmap <leader>w} <C-w>}
+"nmap <leader>wx <C-w>x
+"nmap <leader>w\< <C-w>\<
+"nmap <leader>w\> <C-w>\>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tab settings
@@ -245,6 +251,8 @@ nmap <leader>tn :tabnew<cr>
 nmap <leader>te :tabedit
 nmap <leader>tc :tabclose<cr>
 nmap <leader>tm :tabmove
+nmap <leader>[ :tabprev<cr>
+nmap <leader>] :tabnext<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoVim Python
@@ -482,8 +490,8 @@ let g:android_sdk_path = '/Users/chao/Software/android-sdk'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:ctrlp_types = ['fil', 'buf', 'mru']
 nmap <leader>cp     :CtrlP<cr>
-nmap <leader>cpm    :CtrlPMRUFiles<cr>
-nmap <leader>cpb    :CtrlPBuffer<cr>
+nmap <leader>m    :CtrlPMRUFiles<cr>
+nmap <leader>b    :CtrlPBuffer<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffergator
