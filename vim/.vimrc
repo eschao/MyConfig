@@ -216,6 +216,7 @@ set ttyfast
 " Window
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>w <C-w>
+nmap <leader>c :wq<CR>
 
 "nmap <leader>wh <C-w>h
 "nmap <leader>wj <C-w>j
@@ -464,12 +465,14 @@ au Syntax * RainbowParenthesesLoadBraces
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffers
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>bn :bnext<CR>
-map <leader>bp :bprevious<CR>
-map <leader>bl :buffers<CR>
-map <leader>bd :bd<CR>
-map <leader>bw :bw<CR>
-map <leader>bb :ls<CR>:buffer<Space>
+"map <leader>bn :bnext<CR>
+"map <leader>bp :bprevious<CR>
+nmap <leader>bl :buffers<CR>
+nmap <leader>bd :bd<CR>
+nmap <leader>bw :bw<CR>
+nmap <leader>bb :ls<CR>:buffer<Space>
+nmap <leader>n :bnext<CR>
+nmap <leader>p :bprevious<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-javacomplete2
