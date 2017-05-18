@@ -83,7 +83,12 @@
     ```vim
     let g:jsx_ext_required = 0
     ```
-
+* Install eslint for JS
+    ```bash
+    npm install -g eslint
+    eslint --init
+    ```
+    
 * Install for syntastic
     ```bash
     npm install -g eslint
@@ -97,4 +102,10 @@
 * Create **.tern-project** in the current directory or one of the directories
   above that. If no this file, it will search global **.tern-config**
 
+## Install python3 for NeoVim
+
+  ```shell
+  brew install python3
+  pip3 install neovim --upgrade
+  ```
 
