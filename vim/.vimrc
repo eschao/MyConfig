@@ -65,6 +65,7 @@ Plugin 'ternjs/tern_for_vim' " autocompletion
 Plugin 'pangloss/vim-javascript' " Syntax hilight
 Plugin 'mxw/vim-jsx' " react native syntax
 Plugin 'flowtype/vim-flow' " flow
+Plugin 'eslint/eslint' " eslint
 
 """
 " For doc: Markdown, OrgMode
@@ -218,32 +219,6 @@ set ttyfast
 nmap <leader>w <C-w>
 nmap <leader>c :wq<CR>
 
-"nmap <leader>wh <C-w>h
-"nmap <leader>wj <C-w>j
-"nmap <leader>wk <C-w>k
-"nmap <leader>wl <C-w>l
-"nmap <leader>wH <C-w>H
-"nmap <leader>wJ <C-w>J
-"nmap <leader>wK <C-w>K
-"nmap <leader>wL <C-w>L
-"nmap <leader>w_ <C-w>_
-"nmap <leader>w\| <C-w>\|
-"nmap <leader>w= <C-w>=
-"nmap <leader>ws <C-w>s
-"nmap <leader>wv <C-w>v
-"nmap <leader>ww <C-w>w
-"nmap <leader>wq <C-w>q
-"nmap <leader>wc <C-w>c
-"nmap <leader>wo <C-w>o
-"nmap <leader>wr <C-w>r
-"nmap <leader>wR <C-w>R
-"nmap <leader>wz <C-w>z
-"nmap <leader>w] <C-w>]
-"nmap <leader>w} <C-w>}
-"nmap <leader>wx <C-w>x
-"nmap <leader>w\< <C-w>\<
-"nmap <leader>w\> <C-w>\>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tab settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -310,8 +285,8 @@ let g:tagbar_type_objc = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERD tree explorer plugin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader>en :NERDTree<cr>
-nmap <leader>ec :NERDTreeClose<cr>
+nmap <leader>ff :NERDTree<cr>
+nmap <leader>fc :NERDTreeClose<cr>
 let NERDTreeShowBookmarks = 1
 let NERDTreeWinSize = 60
 
@@ -341,6 +316,7 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_cache_ominfunc = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_auto_trigger = 0
+"let g:loaded_python_provider = 1
 nnoremap <leader>yl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>yf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>yg :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -412,9 +388,14 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+nnoremap <leader>ee :Errors<CR>
+nnoremap <leader>ec :lclose<CR>
+nnoremap <leader>en :lnext<CR>
+nnoremap <leader>ep :lprev<CR>
+
 
 " For JSX
 let g:syntastic_javascript_checkers = ['eslint']
@@ -505,7 +486,8 @@ let g:buffergator_autoupdate = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GUI settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set guifont=Source\ Code\ Pro:h13
+"set anti enc=utf-8
+set guifont=Source\ Code\ Pro\ Light:h13
 " disable scrollbar
 set guioptions-=T
 set guioptions-=r
