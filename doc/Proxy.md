@@ -40,3 +40,9 @@
     ```vim
     npm config set proxy http://127.0.0.1:8123
     ```
+    
+* Set proxy for **Go Get**
+
+  ```vim
+  export https_proxy=127.0.0.1:8123
+  ```
