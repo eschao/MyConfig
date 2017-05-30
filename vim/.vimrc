@@ -21,6 +21,7 @@ Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'kshenoy/vim-signature'
+"Plugin 'vim-scripts/Smart-Tabs'
 
 """
 " Git plugins
@@ -126,6 +127,7 @@ set textwidth=80
 set noexpandtab
 set shiftwidth=2
 set tabstop=2
+set softtabstop=2
 set smarttab
 
 " theme
@@ -242,7 +244,6 @@ let g:python_host_skip_check = 1
 " Omincpp plugin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 setlocal omnifunc=syntaxcomplete#Complete
-set nocp
 let OmniCpp_GlobalScopeSearch = 1
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_DefaultNamespaces = ["std"]
