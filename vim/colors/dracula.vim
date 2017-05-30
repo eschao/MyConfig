@@ -19,6 +19,9 @@ endif
 
 let g:colors_name = "dracula"
 
+"hi TabLine ctermfg=84 ctermbg=236 cterm=NONE guifg=#666666 guibg=#3d3f49 gui=none
+hi TabLineSel ctermfg=245 ctermbg=NONE cterm=NONE guifg=#909194 guibg=NONE gui=none
+hi SpecialKey ctermfg=245 ctermbg=NONE cterm=bold guifg=#909194 guibg=bg gui=bold
 hi Cursor ctermfg=17 ctermbg=231 cterm=NONE guifg=#282a36 guibg=#f8f8f0 gui=NONE
 hi Visual ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#44475a gui=NONE
 hi CursorLine ctermfg=NONE ctermbg=233 cterm=bold guifg=NONE guibg=#121212 gui=bold
@@ -61,7 +64,6 @@ hi Number ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bd93f9 guibg=NONE gui=NONE
 hi Operator ctermfg=212 ctermbg=NONE cterm=NONE guifg=#ff79c6 guibg=NONE gui=NONE
 hi PreProc ctermfg=212 ctermbg=NONE cterm=NONE guifg=#ff79c6 guibg=NONE gui=NONE
 hi Special ctermfg=231 ctermbg=NONE cterm=NONE guifg=#f8f8f2 guibg=NONE gui=NONE
-hi SpecialKey ctermfg=59 ctermbg=236 cterm=NONE guifg=#3b3a32 guibg=#3d3f49 gui=NONE
 hi Statement ctermfg=lightblue ctermbg=NONE cterm=NONE guifg=#ff79c6 guibg=NONE gui=NONE
 hi StorageClass ctermfg=117 ctermbg=NONE cterm=bold guifg=#8be9fd guibg=NONE gui=italic
 hi String ctermfg=228 ctermbg=NONE cterm=NONE guifg=#f1fa8c guibg=NONE gui=NONE
@@ -114,9 +116,7 @@ hi cssClassName ctermfg=84 ctermbg=NONE cterm=NONE guifg=#50fa7b guibg=NONE gui=
 hi cssValueLength ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bd93f9 guibg=NONE gui=NONE
 hi cssCommonAttr ctermfg=81 ctermbg=NONE cterm=NONE guifg=#6be5fd guibg=NONE gui=NONE
 hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi TabLineFill  guifg=#333333 guibg=#282a36 gui=none
-hi TabLine      guifg=#666666 guibg=#282a36 gui=none
-hi TabLineSel   guifg=WHITE guibg=#282a36 gui=none
+"hi TabLineFill  ctermfg=84 ctermbg=236 cterm=NONE guifg=#333333 guibg=#3d3f49 gui=none
 
 " Vim Script {{{
 hi vimGroupName ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE

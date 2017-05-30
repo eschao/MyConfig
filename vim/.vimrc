@@ -17,7 +17,8 @@ Plugin 'VundleVim/Vundle.vim'
 """
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Yggdroot/indentLine'
+"Plugin 'Yggdroot/indentLine'
+"Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'kshenoy/vim-signature'
 
@@ -122,7 +123,7 @@ set cc=80
 set textwidth=80
 
 " Tab
-set expandtab
+set noexpandtab
 set shiftwidth=2
 set tabstop=2
 set smarttab
@@ -143,7 +144,7 @@ set autowrite
 
 " Set fold
 set foldenable
-set foldmethod=indent
+set foldmethod=manual
 set foldcolumn=0
 set foldlevel=99
 set foldminlines=3
@@ -176,13 +177,13 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html setlocal ts=2 sw=2
 "autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 "autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 "autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c setlocal omnifunc=ccomplete#Complete
 "autocmd FileType java set omnifunc=ccomplete#Complete
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete ts=4 sw=4
 
 " For performance, turn off cursoline for php filetype
 autocmd FileType php setlocal nocursorline foldmethod=manual
@@ -545,4 +546,10 @@ nnoremap <F12> :call ShowSpaces(1)<CR>
 nnoremap <leader>lw :call dict#LookupCWord()<cr>
 nnoremap <leader>lei :call dict#LookupEnglish()<cr>
 nnoremap <leader>lci :call dict#LookupChinese()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indent line for tab
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set listchars=tab:│\ ,
+set list
 
