@@ -172,7 +172,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Conceal
 map <leader>cl :exec &conceallevel ? "set conceallevel=0" :
-            \ "set conceallevel=1"<CR>
+						\ "set conceallevel=1"<CR>
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
@@ -185,7 +185,7 @@ autocmd FileType html setlocal ts=2 sw=2
 "autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c setlocal omnifunc=ccomplete#Complete
 "autocmd FileType java set omnifunc=ccomplete#Complete
-autocmd FileType java setlocal omnifunc=javacomplete#Complete ts=4 sw=4
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " For performance, turn off cursoline for php filetype
 autocmd FileType php setlocal nocursorline foldmethod=manual
@@ -193,7 +193,7 @@ autocmd BufRead * normal zR
 
 " Show me the overflow.
 if has('syntax') && v:version >= 704
-  call matchadd('ColorColumn', '\%' . &textwidth . 'v', 81)
+	call matchadd('ColorColumn', '\%' . &textwidth . 'v', 81)
 endif
 
 " Set the Vim command history size to a larger number.
@@ -259,29 +259,29 @@ nmap <leader>tg :Tagbar<cr>
 
 " For Objective-C
 let g:tagbar_type_objc = {
-  \ 'ctagstype': 'objc',
-  \ 'ctagsargs': [
-    \ '-f',
-    \ '-',
-    \ '--excmd=pattern',
-    \ '--extra=',
-    \ '--format=2',
-    \ '--fields=nksaSmt',
-    \ '--options=' . expand('~/.vim/tags/objctags'),
-    \ '--objc-kinds=-N',
-  \ ],
-  \ 'sro': ' ',
-  \ 'kinds': [
-    \ 'c:constant',
-    \ 'e:enum',
-    \ 't:typedef',
-    \ 'i:interface',
-    \ 'P:protocol',
-    \ 'p:property',
-    \ 'I:implementation',
-    \ 'M:method',
-    \ 'g:pragma',
-  \ ],
+	\ 'ctagstype': 'objc',
+	\ 'ctagsargs': [
+		\ '-f',
+		\ '-',
+		\ '--excmd=pattern',
+		\ '--extra=',
+		\ '--format=2',
+		\ '--fields=nksaSmt',
+		\ '--options=' . expand('~/.vim/tags/objctags'),
+		\ '--objc-kinds=-N',
+	\ ],
+	\ 'sro': ' ',
+	\ 'kinds': [
+		\ 'c:constant',
+		\ 'e:enum',
+		\ 't:typedef',
+		\ 'i:interface',
+		\ 'P:protocol',
+		\ 'p:property',
+		\ 'I:implementation',
+		\ 'M:method',
+		\ 'g:pragma',
+	\ ],
  \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -351,36 +351,36 @@ nnoremap <leader>fz :FZF<cr>
 " Tmux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('$TMUX')
-    function! TmuxOrSplitSwitch(wincmd, tmuxdir)
-        let previous_winnr = winnr()
-        silent! execute "wincmd " . a:wincmd
-        if previous_winnr == winnr()
-            call system("tmux select-pane -" . a:tmuxdir)
-            redraw!
-        endif
-    endfunction
+		function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+				let previous_winnr = winnr()
+				silent! execute "wincmd " . a:wincmd
+				if previous_winnr == winnr()
+						call system("tmux select-pane -" . a:tmuxdir)
+						redraw!
+				endif
+		endfunction
 
-    let previous_title = substitute(system("tmux display-message -p
-                                    \ '#{pane_title}'"), '\n', '', '')
-    let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
-    let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
+		let previous_title = substitute(system("tmux display-message -p
+																		\ '#{pane_title}'"), '\n', '', '')
+		let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
+		let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
 
-    nnoremap <silent> <M-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
-    nnoremap <silent> <M-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
-    nnoremap <silent> <M-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
-    nnoremap <silent> <M-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+		nnoremap <silent> <M-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+		nnoremap <silent> <M-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+		nnoremap <silent> <M-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+		nnoremap <silent> <M-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
 else
-    map <M-h> <C-w>h
-    map <M-j> <C-w>j
-    map <M-k> <C-w>k
-    map <M-l> <C-w>l
+		map <M-h> <C-w>h
+		map <M-j> <C-w>j
+		map <M-k> <C-w>k
+		map <M-l> <C-w>l
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufEnter,BufRead,BufNewFile *.markdown,*.mdown,*.mkd,*.mkdn,README.md
-            \ setf markdown
+						\ setf markdown
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic
@@ -411,7 +411,7 @@ let g:javascript_plugin_flow = 1
 " Ack.vim & ag
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
+		let g:ackprg = 'ag --vimgrep'
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -440,10 +440,10 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " Debug syntax
  map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
-            \ . '> trans<'
-            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")
-            \ . ">"<CR>
+						\ . '> trans<'
+						\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+						\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")
+						\ . ">"<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffers
@@ -461,7 +461,7 @@ nmap <leader>p :bprevious<CR>
 " vim-javacomplete2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:JavaComplete_LibsPath = '/Users/chao/Software/android-sdk/platforms:
-        \ /Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home'
+				\ /Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home'
 let g:JavaComplete_SourcesPath = '/Users/chao/Software/android-sdk/sources'
 let g:JavaComplete_ShowExternalCommandsOutput = 1
 
@@ -475,9 +475,9 @@ let g:android_sdk_path = '/Users/chao/Software/android-sdk'
 " CtrlP
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:ctrlp_types = ['fil', 'buf', 'mru']
-nmap <leader>cp     :CtrlP<cr>
-nmap <leader>m    :CtrlPMRUFiles<cr>
-nmap <leader>b    :CtrlPBuffer<cr>
+nmap <leader>cp			:CtrlP<cr>
+nmap <leader>m		:CtrlPMRUFiles<cr>
+nmap <leader>b		:CtrlPBuffer<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffergator
@@ -513,7 +513,7 @@ let g:CommandTSmartCase = 1
 let g:CommandTMaxCachedDirectories = 10
 
 if &term =~ "xterm" || &term =~ "screen"
-    let g:CommandTCancelMap = ['<ESC>', '<C-c>']
+		let g:CommandTCancelMap = ['<ESC>', '<C-c>']
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -528,15 +528,15 @@ let g:jsx_ext_required = 0
 autocmd BufWritePre * %s/\s\+$//e
 
 function! ShowSpaces(...)
-    let @/='\v(\s+$)|( +\ze\t)'
-    let old_hlsearch = &hlsearch
-    if !a:0
-        let &hlsearch = !&hlsearch
-    else
-        let &hlsearch = a:1
-    end
+		let @/='\v(\s+$)|( +\ze\t)'
+		let old_hlsearch = &hlsearch
+		if !a:0
+				let &hlsearch = !&hlsearch
+		else
+				let &hlsearch = a:1
+		end
 
-    return old_hlsearch
+		return old_hlsearch
 endfunction
 
 nnoremap <F12> :call ShowSpaces(1)<CR>
@@ -549,8 +549,9 @@ nnoremap <leader>lei :call dict#LookupEnglish()<cr>
 nnoremap <leader>lci :call dict#LookupChinese()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Indent line for tab
+" Indent line for tb
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set listchars=tab:│\ ,
+" ┊ , │, ┆, ╎,
+set listchars=tab:┆\ ,nbsp:∙,trail:·
 set list
 
