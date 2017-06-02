@@ -62,3 +62,4 @@ http://www.monobjc.net/xcode-project-file-format.html
 
 ## Tab UTF-8 Char
 * http://tamivox.org/dave/boxchar/index.html
+* http://www.utf8-chartable.de/unicode-utf8-table.pl?start=9472&unicodeinhtml=dec
