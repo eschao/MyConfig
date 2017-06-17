@@ -48,9 +48,14 @@ Plugin 'hsanson/vim-android'
 """
 " Tools
 """
-Plugin 'Shougo/vimshell.vim'
+"Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimproc.vim', {'do' : 'make'}
 Plugin 'Shougo/unite.vim'
+
+"""
+" Lang Lint
+"""
+Plugin 'w0rp/ale'
 
 """
 " For language completion
@@ -81,6 +86,11 @@ Plugin 'jceb/vim-orgmode'
 Plugin 'fatih/vim-go', { 'tag': '*' }
 Plugin 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plugin 'vim-syntastic/syntastic'
+
+"""
+" Python
+"""
+Plugin 'python-mode/python-mode'
 
 """
 " Mine
@@ -548,10 +558,17 @@ nnoremap <leader>lw :call dict#LookupCWord()<cr>
 nnoremap <leader>lei :call dict#LookupEnglish()<cr>
 nnoremap <leader>lci :call dict#LookupChinese()<cr>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indent line for tb
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ┊ , │, ┆, ╎,
-set listchars=tab:┆\ ,nbsp:∙,trail:·
+set listchars=tab:╎\ ,nbsp:∙,trail:·
 set list
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indent line for tb
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:pymode = 1
+let g:pymode_warnings = 1
+let g:pymode_rope = 0
 
