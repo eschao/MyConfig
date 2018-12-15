@@ -26,3 +26,16 @@ G=gg          : auto (re)indent entire document
 
 
 http://www.catswhocode.com/blog/100-vim-commands-every-programmer-should-know
+
+=i{ reindents "inner block" (inside the braces).
+=a{ reindents "a block" (including the braces).
+=2a{ reindents 2 blocks (this block and containing block).
+
+>i{ increase indent for inner block.
+. repeat last change (increase indent of block again).
+<i{ decrease indent for inner block.
+
+With the cursor on { or }:
+
+=% indents the block (including matching brace).
+>% or <% indents or unindents the block.
