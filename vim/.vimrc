@@ -42,28 +42,30 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'yonchu/accelerated-smooth-scroll' " Smooth scroll with <C-D> <C-U>
 Plugin 'jlanzarotta/bufexplorer'
 
+Plugin 'fatih/vim-go', { 'tag': '*' }
 Plugin 'sheerun/vim-polyglot'
-Plugin 'hsanson/vim-android'
+Plugin 'dbeniamine/cheat.sh-vim'
+"Plugin 'hsanson/vim-android'
 
 """
 " Tools
 """
 "Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimproc.vim', {'do' : 'make'}
-Plugin 'Shougo/unite.vim'
+"Plugin 'Shougo/unite.vim'
 
 """
 " Lang Lint
 """
-Plugin 'w0rp/ale'
+"Plugin 'w0rp/ale'
 
 """
 " For language completion
 """
 Plugin 'majutsushi/tagbar'
-Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'artur-shaik/vim-javacomplete2'
+"Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'artur-shaik/vim-javacomplete2'
 
 """
 " Javascript
@@ -83,9 +85,9 @@ Plugin 'jceb/vim-orgmode'
 """
 " For languages
 """ Plugin 'davidhalter/jedi-vim' " Python
-Plugin 'fatih/vim-go', { 'tag': '*' }
-Plugin 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+"Plugin 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plugin 'vim-syntastic/syntastic'
+Plugin 'udalov/kotlin-vim'
 
 """
 " Python
@@ -100,17 +102,27 @@ Plugin 'eschao/vim-dict'
 """
 " News
 """
-Plugin 'ryanss/vim-hackernews'
+"Plugin 'ryanss/vim-hackernews'
 
 "Plugin 'mattn/emmet-vim'
 "Plugin 'SirVer/ultisnips'
 "Plugin 'edkolev/promptline.vim'
 "Plugin 'Shougo/vimfiler.vim'
-"Plugin 'taglist.vim'
-"Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+
 "Plugin 'tpope/vim-fireplace', { 'for': 'clojure' }
 "Plugin 'https://github.com/junegunn/vim-github-dashboard.git'
 "Plugin 'jeetsukumaran/vim-buffergator'
+"
+Plugin 'taglist.vim'
+Plugin 'posva/vim-vue'
+
+"""
+" Swift
+"""
+Plugin 'apple/swift'
+Plugin 'gfontenot/vim-xcode'
 
 " Add plugins to &runtimepath
 call vundle#end()
@@ -190,6 +202,7 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html setlocal ts=2 sw=2
+autocmd FileType swift setlocal ts=2 sw=2 expandtab
 "autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 "autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 "autocmd FileType php set omnifunc=phpcomplete#CompletePHP
@@ -200,6 +213,7 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " For performance, turn off cursoline for php filetype
 autocmd FileType php setlocal nocursorline foldmethod=manual
 autocmd BufRead * normal zR
+autocmd BufNewFile,BufRead *.swift set filetype=swift
 
 " Show me the overflow.
 if has('syntax') && v:version >= 704
@@ -244,11 +258,17 @@ nmap <leader>[ :tabprev<cr>
 nmap <leader>] :tabnext<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoVim Python
+" Python
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:python_host_prog = '/usr/bin/python'
+"let g:python_host_prog = '/usr/local/bin/python3'
+"let g:pymode_python = 'python2.7'
+let g:pymode_python = 'python3'
 let g:loaded_python_provider = 1
 let g:python_host_skip_check = 1
+"let g:pymode_virtualenv = 0
+"let g:pymode_init = 0
+"let g:pymode_lint = 0
+"let g:pymode_rope = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Omincpp plugin
@@ -321,25 +341,25 @@ let NERDTreeWinSize = 60
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YCM Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_global_ycm_extra_conf = '~/.mac_ycmd_conf.py'
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_cache_ominfunc = 0
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_auto_trigger = 0
-"let g:loaded_python_provider = 1
-nnoremap <leader>yl :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>yf :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>yg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <leader>yi :YcmCompleter GoToInclude<CR>
-nnoremap <leader>yy :YcmCompleter GetType<CR>
-nnoremap <leader>yp :YcmCompleter GetParent<CR>
-nnoremap <leader>yt :YcmCompleter GoTo<CR>
+"let g:ycm_global_ycm_extra_conf = '~/.mac_ycmd_conf.py'
+"let g:ycm_complete_in_comments = 1
+"let g:ycm_complete_in_strings = 1
+"let g:ycm_seed_identifiers_with_syntax = 1
+"let g:ycm_cache_ominfunc = 0
+"let g:ycm_collect_identifiers_from_tags_files = 1
+"let g:ycm_auto_trigger = 0
+"let g:ycm_server_python_interpreter = '/usr/bin/python2.7'
+"nnoremap <leader>yl :YcmCompleter GoToDeclaration<CR>
+"nnoremap <leader>yf :YcmCompleter GoToDefinition<CR>
+"nnoremap <leader>yg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"nnoremap <leader>yi :YcmCompleter GoToInclude<CR>
+"nnoremap <leader>yy :YcmCompleter GetType<CR>
+"nnoremap <leader>yp :YcmCompleter GetParent<CR>
+"nnoremap <leader>yt :YcmCompleter GoTo<CR>
 
-let g:ycm_error_symbol = 'E>'
-let g:ycm_warning_symbol = 'W>'
-nmap <leader>yd :YcmDiags<CR>
+"let g:ycm_error_symbol = 'E>'
+"let g:ycm_warning_symbol = 'W>'
+"nmap <leader>yd :YcmDiags<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline
@@ -353,9 +373,10 @@ set laststatus=2
 " FZF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:fzf_layout = { 'down': '40%' }
+let g:fzf_buffers_jump = 1
 nnoremap <leader>fz :FZF<cr>
-"nnoremap <leader>fb :Buffers<cr>
-"nnoremap <leader>fh :History<cr>
+nnoremap <leader>fb :Buffers<cr>
+nnoremap <leader>fh :History<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux
@@ -437,6 +458,7 @@ nnoremap <leader>vt :VimShellTab<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Gundo
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gundo_prefer_python3 = 1
 nnoremap <leader>gs :GundoShow<CR>
 nnoremap <leader>gh :GundoHide<CR>
 
@@ -535,7 +557,8 @@ let g:jsx_ext_required = 0
 " Customization
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " remove trailing whitespace
-autocmd BufWritePre * %s/\s\+$//e
+autocmd FileType c,cpp,java,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql 
+		\ autocmd BufWritePre * %s/\s\+$//e
 
 function! ShowSpaces(...)
 		let @/='\v(\s+$)|( +\ze\t)'
@@ -572,3 +595,10 @@ let g:pymode = 1
 let g:pymode_warnings = 1
 let g:pymode_rope = 0
 
+" Vue
+let g:vue_disable_pre_processors=1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Golang
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:polyglot_disabled = ['go']
